@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import "About_us_adaptive.scss";
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+
+ $addSize: $pcSize - $mobSize;
+ 
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+$font-roboto:"Roboto";
+
+html,body{
+	font-family:$font-roboto;
+	font-size: 16px;
+	height: 100%;
+	background: #000;
+	display: flex;
+	flex-direction: column;
+}
+main{
+	flex:1 1 auto;
+	margin-top:90px;
+	font-family:$font-roboto;
+	color:#fff;
+}
+.info_about_us {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+.title {
+	@include adaptiv-font(44,28);
+	padding: 1em 2em;
+}
+.text {
+	width: 65%;
+	margin: 0 auto;
+	@include adaptiv-font(24,18);
+	line-height: 2em;
+	p{
+		margin-bottom: 1em;
+		&:last-child{
+			@include adaptiv-font(28,22);
+			letter-spacing: .2em;
+		}
+	}
+}
+.main-footer,
+.header_site{
+	font-family:$font-roboto;
+}
+.main-footer{
+	box-shadow: 0 0 5px #fff;
+}

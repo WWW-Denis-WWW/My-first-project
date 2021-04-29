@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+
+ $addSize: $pcSize - $mobSize;
+ 
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+$font-roboto:"Roboto";
+html,body{
+	font-family:$font-roboto;
+	font-size: 16px;
+	height: 100%;
+	background: #000;
+	display: flex;
+	flex-direction: column;
+}
+main{
+	flex:1 1 auto;
+	margin-top:90px;
+	font-family:$font-roboto;
+	color:#fff;
+}
+.main-footer,
+.header_site{
+	font-family:$font-roboto;
+}

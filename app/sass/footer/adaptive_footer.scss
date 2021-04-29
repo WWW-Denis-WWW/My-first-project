@@ -1,0 +1,12 @@
+@media screen and (max-width:450px) {
+	.footer_box{
+		text-align: center;
+	}
+	.about_project {
+		flex: 0 1 100%;
+	}
+	.contact {
+		flex: 0 1 100%;
+		margin-top: 0;
+	}
+}

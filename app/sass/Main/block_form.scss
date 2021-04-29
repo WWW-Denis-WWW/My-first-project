@@ -1,0 +1,237 @@
+.support {
+	background: #fff;
+	min-width: 100%;
+	padding: 2em 0;
+	text-align: center;
+	position: relative;
+	&.active .anim_block{
+		animation: active_formL .8s linear;
+		&:nth-child(2n){
+			animation: active_formR .8s linear;
+		}
+	}
+}
+@keyframes  active_formR{
+	0{
+		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+	}
+	50%{
+		clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+	}
+	100%{
+		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	}
+}
+@keyframes  active_formL{
+	0%{
+		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	}
+	50%{
+		clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+	}
+	100%{
+		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+	}
+}
+.anim_block {
+	position: absolute;
+	top:0;
+	bottom: 0;
+	clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	height: 100%;
+	width: 51%;
+	background: #000;
+}
+.anim_block:nth-child(2n){
+	right:0 !important;
+	clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+.sup_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.title{
+		@include adaptiv-font(44,28);
+}
+.sup_text {
+	font-family:'Comfortaa', cursive;
+	@include adaptiv-font(23, 16);
+	line-height: 125%;
+	margin-bottom: 1.2em;
+}
+.sup_form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	.input_box{
+		width: 48%;
+		@include adaptiv-font(20, 14);
+		margin-top:.8em;
+		font-weight: 700;
+		height: 2.5em;
+		border:none;
+		border-radius: 10px;
+		background: #dddddd;
+		position: relative;
+		box-sizing: border-box;
+	}
+	input[type="text"],
+	input[type="email"]{
+		width: 100%;
+		@include adaptiv-font(20, 14);
+		box-sizing: border-box;
+		font-weight: 700;
+		height: 2.5em;
+		border:none;
+		border-radius: 10px;
+		background: #dddddd;
+		padding:0 1em;
+	}
+	.input_box::before{
+		content:'';
+		position: absolute;
+		color:#ababab;
+		@include adaptiv-font(20, 14);
+		left: 1em;
+		top:50%;
+		transform: translateY(-50%);
+		z-index: 0;
+		transition: all .3s ease-in-out;
+		cursor: text;
+	}
+	.input_box.focus::before{
+		top:-1em;
+		left:.5em;
+		color:#000;
+		transition: all .3s ease-in-out;
+	}
+	._name::before{
+		content:'Ваше имечко';
+	}
+	._email::before{
+		content:'Ваша почта';
+	}
+	.checkbox_container {
+		width: 100%;
+		padding: 1em 1em;
+		text-align: center;
+		box-sizing: border-box;
+		@include adaptiv-font(25, 18);
+		font-family:'Comfortaa';
+		input[type="checkbox"]{
+			display: none;
+		}
+		.checkbox_name{
+			box-sizing: border-box;
+			position: relative;
+			padding: 0 .5em;
+			color:#b2b2b2;
+			font-weight: 700;
+			transition: all .3s linear;
+			cursor: pointer;
+		}
+		.checkbox:checked + .checkbox_name{
+			color:#000;
+			@include adaptiv-font(27, 20);
+			transition: all .3s linear;
+		}
+	}
+	.box_TA {
+		width: 100%;
+	}
+	textarea{
+		background: #dddddd;
+		@include adaptiv-font(18, 14);
+		border-radius: 10px;
+		padding:1em;
+		border:none;
+		width: 100%;
+		height: 10em;
+		box-sizing: border-box;
+	}
+	.lenght_TA{
+		flex:0 1 100%;
+		@include adaptiv-font(19, 16);
+		text-align: left;
+	   background: linear-gradient(to right, #000 20%, #ff1908 40%, #ff1908 60%, #000 80%);
+	   background-size: 200% auto;
+	   color: transparent;
+	   background-clip: text;
+	   animation: shine 2s linear infinite;
+	   transition: color .4s linear;
+	   &.valid{
+	   	color:#59f100;
+	   	transition: color .4s linear;
+	   }
+	}
+	#score,
+	#min-lenghtTA{
+		font-weight: 700;
+		@include adaptiv-font(21, 18);
+	}
+
+	@keyframes shine {
+    to{
+      background-position: 200% center;
+   	}
+ 	}
+
+	.sub_btn{
+		position: relative;
+		margin:0 auto;
+		padding: 0 5em 0 2em;
+		background: none;
+		display: flex;
+		outline: none;
+		justify-content: center;
+		align-items: center;
+		transition: opacity .5s ease;
+		margin-top: 1.5em;
+		opacity: 1;
+		margin-bottom: 2em;
+		&:disabled{
+			opacity: .5;
+			transition: opacity .5s ease;
+		}
+		&::before{
+			content: '';
+			position: absolute;
+			top:50%;
+			left: 0;
+			transform: translateY(-50%);
+			background:rgba(255, 3, 62,0.5);
+			width: 3.5em;
+			height: 3.5em;
+			border-radius: 2em;
+			z-index:0;
+			transition: all 0.35s ease-in-out;
+		}
+		&.active:hover:before{
+			width: 100%;
+			transition: all 0.35s ease-in-out;
+			background:rgba(255, 3, 62,1);
+		}
+		&.active:hover {
+			.form_arrow{
+				right: 8%;
+				transition: right 0.35s ease-in-out;
+			}
+		}
+		.sub{
+			@include adaptiv-font(26, 20);
+			position: relative;
+			z-index:1;
+		}
+		.form_arrow {
+			width: 2em;
+			height: 2em;
+			font-weight: 900;
+			position: absolute;
+			top:50%;
+			transition: right 0.35s ease-in-out;
+			right:10%;
+			transform: translateY(-50%);
+		}
+	}
+}

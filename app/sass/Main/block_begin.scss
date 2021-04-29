@@ -1,0 +1,110 @@
+$red_color:#F01F1A;
+$light_green:#51F546;
+// ==========================
+$maxWidth: 1300;
+@mixin adaptiv-font($pcSize, $mobSize) {
+ $addSize: $pcSize - $mobSize;
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+// ==========================
+	.begin{
+		background: black url(../images/dest/planets/mars.webp) no-repeat center 60px / cover fixed;
+		width:100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding:3em 0;
+		min-height: 101vh;
+		box-sizing: border-box;
+		.box_begin{
+			color:#fff;
+			min-height: 100%;
+			min-width: 100%;
+			display: flex;
+			flex-direction: column;
+			.title{
+				@include adaptiv-font(42, 25);
+				text-align: center;
+				margin:90px 0 80px 0;
+				text-shadow: 0px 0px .13em #000;
+				font-weight: 700;
+				letter-spacing: 1px;
+				opacity: 0;
+				transform: translateX(-2.5em);
+				&.active{
+					transition: all .35s linear .1s;
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+			.text{
+				@include adaptiv-font(23, 16);
+				text-shadow: 0px 0px .2em #000;
+				text-align: center;
+				margin-bottom: 3em;
+				line-height: 1.8em;
+				opacity: 0;
+				transform: translateX(-2.5em);
+				&.active{
+					transition: all .5s linear .15s;
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+			.box_button{
+					flex:1 1 auto;
+				display: flex;
+				justify-content: center;
+				opacity: 0;
+				transform: translateY(2em);
+				&.active{
+					transition: all .5s linear .4s;
+					opacity: 1;
+					transform: translateX(0);
+				}
+				.button_start{
+					align-self: center;
+					min-width: 5em;
+					@include adaptiv-font(30, 20);
+					z-index: 2;
+					display:inline-block;
+					text-align: center;
+					background:$light_green;
+					border-radius:3em;
+					transition:all .4s ease-in-out;
+					position: relative;
+					z-index: 1;
+					padding: 0.65em;
+					&::before{
+						border-radius:3em;
+						content:'';
+						position: absolute;
+						opacity: 0;
+						width: 0%;
+						height: 100%;
+						top:0;
+						left: 0;
+						background:$red_color;
+						transition:all .4s ease-in-out;
+						z-index: -1;
+					}
+					&:hover::before{
+						left:0;
+						opacity: 1;
+						top:0;
+						width: 100%;
+						transition:all .4s ease-in-out;
+						box-shadow: 0px 0px 0.5em $red_color,
+										0px 0px 1em $red_color,
+										0px 0px 1.5em $red_color,
+										0px 0px 2em $red_color;
+					}
+				   a{
+				     z-index: 1;
+					  text-shadow:0px 0px .3em #000;
+					}			
+				}
+			}
+		}
+	}

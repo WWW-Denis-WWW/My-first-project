@@ -1,0 +1,17 @@
+@media screen and (max-width:900px){
+	.text_causes,
+	.photo_causes{
+		flex:1 1 100%;
+		height: 100%;
+	}
+	.text_causes{
+		padding-top: 1.5em;
+		padding-bottom:.5em;
+	}
+	.one_text{
+		order:-1;
+	}
+	.last_photo{
+		order:5;
+	}
+}

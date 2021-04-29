@@ -1,0 +1,27 @@
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+
+ $addSize: $pcSize - $mobSize;
+ 
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+@media screen and (max-width: 550px){
+.title {
+	@include adaptiv-font(44,28);
+	padding: 0em 2em 1em 2em !important;
+}
+.text {
+	width: 65%;
+	margin: 0 auto;
+	@include adaptiv-font(24,18);
+	line-height: 2em;
+	p{
+		margin-bottom: 1em;
+			&:last-child{
+				@include adaptiv-font(28,22);
+				letter-spacing: .2em;
+			}
+		}	
+	}
+}

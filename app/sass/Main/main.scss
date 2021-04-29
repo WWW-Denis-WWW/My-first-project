@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@import "block_begin.scss";
+@import "block_info.scss";
+@import "block_causes.scss";
+@import "block_gallery.scss";
+@import "swiper.scss";
+@import "swiper-bundle.scss";
+@import "block_form.scss";
+// ______________________
+@import "adaptive/adaptive_block_causes.scss";
+@import "adaptive/adaptive_block_begin.scss";
+@import "adaptive/adaptive_block_info.scss";
+@import "adaptive/adaptive_block_gallery.scss";
+@import "adaptive/adaptive_block_form.scss";
+// =======================================================
+$font-roboto:"Roboto";
+// =======================================================
+// adaptiv font-size
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+
+ $addSize: $pcSize - $mobSize;
+ 
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+// =======================================================
+html,body{
+	font-family:$font-roboto;
+	font-size: 16px;
+	height: 100%;
+	background: #000;
+}
+a{
+	color:#fff;
+}
+.wrapper{
+	width:80%;
+	height:100%;
+	margin:0 auto;
+}

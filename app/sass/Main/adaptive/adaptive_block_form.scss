@@ -1,0 +1,27 @@
+@media screen and (max-width: 730px) {
+	.sup_form {
+		.input_box{
+			width: 100%;
+			&:nth-child(2n){
+			margin-top:2em;
+			}
+		}
+		.checkbox_container{
+			display: flex;
+			flex-direction: column;
+			.checkbox_name{
+				width: 100%;
+				
+				&:nth-child(2n){
+					margin-top:.4em;
+				}
+			}
+		}
+	}	
+}
+
+@media screen and (max-width: 354px){
+	.lenght_TA{
+		text-align: center !important;
+	}
+}
